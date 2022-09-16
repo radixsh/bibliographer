@@ -44,7 +44,7 @@ def validate_date(date, string):
 
 def clean_url(url):
     if url == '':
-        url = 'Invalid URL; you\'ll have to fix this by hand later.')
+        url = 'Invalid URL; you\'ll have to fix this by hand later.'
         return url
     url = url.replace('https://', '')
     url = url.replace('http://', '')
@@ -59,24 +59,24 @@ def mla():
 
     author = input('Article author (Last, First M): ')
     details['Article author'] = author.title().strip()
-    print(f'{details["Article author"]}')
+    print(f'{details["Article author"]}\n')
 
     title = input('Article title: ')
     details['Article title'] = title.title().strip('". ')
-    print(f'{details["Article title"]}')
+    print(f'{details["Article title"]}\n')
 
     publisher = input('Publisher (e.g., The New York Times): ')
     details['Publisher'] = publisher.title().strip('". ')
-    print(f'{details["Publisher"]}')
+    print(f'{details["Publisher"]}\n')
 
     date_published = input('Date published (e.g., 22 May 2007): ')
     mla_date_format = "%d %B %Y"
     details['Date published'] = validate_date(date_published, mla_date_format).strip()
-    print(f'{details["Date published"]}')
+    print(f'{details["Date published"]}\n')
 
     url = input('URL: ')
     details['URL'] = clean_url(url)
-    print(f'{details["URL"]}')
+    print(f'{details["URL"]}\n')
 
     # https://www.w3schools.com/python/python_datetime.asp
     date_accessed = input('Date accessed (if empty, default is today): ')
@@ -85,7 +85,7 @@ def mla():
         details['Date accessed'] = date_accessed
     else:
         details['Date accessed'] = validate_date(date_accessed, mla_date_format) 
-    print(f'{details["Date accessed"]}')
+    print(f'{details["Date accessed"]}\n')
 
     mycitation = Citation(details)
     mycitation.printMla()
@@ -96,23 +96,23 @@ def apa():
 
     author = input('Article author (Last, F. M.): ')
     details['Article author'] = author.title().rstrip(' .');
-    print(f'{details["Article author"]}')
+    print(f'{details["Article author"]}\n')
 
     date_published = input('Date published (e.g., 2003, November 18): ')
     details['Date published'] = validate_date(date_published, "%Y, %B %d").strip()
-    print(f'{details["Date published"]}')
+    print(f'{details["Date published"]}\n')
 
     title = input('Article title: ')
     details['Article title'] = title.strip('". ')
-    print(f'{details["Article title"]}')
+    print(f'{details["Article title"]}\n')
 
     site_name = input('Site name (e.g., Medium): ')
     details['Publisher'] = site_name.title().strip('". ')
-    print(f'{details["Publisher"]}')
+    print(f'{details["Publisher"]}\n')
 
     url = input('URL: ')
     details['URL'] = clean_url(url)
-    print(f'{details["URL"]}')
+    print(f'{details["URL"]}\n')
 
     mycitation = Citation(details)
     mycitation.printApa();
